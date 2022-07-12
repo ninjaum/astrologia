@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrologia</title>
+    <link rel="stylesheet" href="site.css">
+    
+</head>
+<body>
+    <div id="roleta-russa">
+        <header>Bem vindo ao site da Astrologia!</header>
+        <div class="teste">Você acredita em Astrologia?</div>
+        <div class="testeinput">
+            <input type="radio" name = "corno" id = "burrao" value="yes" @click="ExibirRoleta">
+            <label for="yes">Sim</label>
+            <input type="radio" name = "corno" id = "esperto" value="no" @click="SumirRoleta">
+            <label for="no">Não</label>
+        </div>
+
+        <div v-if="DivRoleta">
+            <div class="seusigno">
+                Qual seu signo?
+            </div>
+            <ul class="slider">
+                <li>
+                    <input type="radio" id="slide1" name="slide" checked>
+                    <label for="slide1"></label>
+                    <img src="./images/aquario.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide2" name="slide">
+                    <label for="slide2"></label>
+                    <img src="./images/aries.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide3" name="slide">
+                    <label for="slide3"></label>
+                    <img src="./images/cancer.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide4" name="slide">
+                    <label for="slide4"></label>
+                    <img src="./images/capricorno.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide5" name="slide">
+                    <label for="slide5"></label>
+                    <img src="./images/gemni.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide6" name="slide">
+                    <label for="slide6"></label>
+                    <img src="./images/liao.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide7" name="slide">
+                    <label for="slide7"></label>
+                    <img src="./images/libra.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide8" name="slide">
+                    <label for="slide8"></label>
+                    <img src="./images/peixe.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide9" name="slide">
+                    <label for="slide9"></label>
+                    <img src="./images/sagittarius.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide10" name="slide">
+                    <label for="slide10"></label>
+                    <img src="./images/scorpio.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide11" name="slide">
+                    <label for="slide11"></label>
+                    <img src="./images/touro.png" alt="">
+                </li>
+                <li>
+                    <input type="radio" id="slide12" name="slide">
+                    <label for="slide12"></label>
+                    <img src="./images/virgem.png" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="enviar">
+            <button @Click="Calcular">Enviar</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    DivRoleta : false
+                }
+            },
+            methods: {
+                ExibirRoleta() {
+                    this.DivRoleta = true;
+                },
+                SumirRoleta() {
+                    this.DivRoleta = false;
+                },
+                Calcular() {
+                    if (this.DivRoleta === false) {
+                        alert('Você é uma pessoa sensata!');
+                    }
+                    if (this.DivRoleta === true) {
+                        alert('Você tem sérios problemas psicológicos!')
+                    }
+                }
+            }
+        }).mount('#roleta-russa');
+    </script>
+    
+    
+</body>
+</html>
